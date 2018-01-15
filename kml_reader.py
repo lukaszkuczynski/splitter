@@ -1,17 +1,15 @@
 from fastkml import kml
+from shapely.geometry import LineString
 
-def read_kml(filepath):
+
+def read_kml_areas(filepath):
     with open(filepath, 'rb') as f:
         k = kml.KML()
         kml_doc = f.read()
         k.from_string(kml_doc)
         documents = list(k.features())
         for doc in documents:
-            print(doc)
             for placemark in doc.features():
-                print(placemark)
-
-
-
-if __name__ == '__main__':
-    read_kml('areas.kml')
+                area_name = print(placemark.name)
+                area_shape = LineString(placemark.geometry)
+                yield {"name": area_name, "shape": area_shape}
