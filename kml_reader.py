@@ -13,3 +13,4 @@ def read_kml_areas(filepath):
                 area_name = placemark.name
                 area_shape = placemark.geometry
                 yield {"name": area_name, "shape": area_shape}
+
