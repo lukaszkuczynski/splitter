@@ -10,6 +10,6 @@ def read_kml_areas(filepath):
         documents = list(k.features())
         for doc in documents:
             for placemark in doc.features():
-                area_name = print(placemark.name)
-                area_shape = LineString(placemark.geometry)
+                area_name = placemark.name
+                area_shape = placemark.geometry
                 yield {"name": area_name, "shape": area_shape}

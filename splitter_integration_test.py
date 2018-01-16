@@ -12,4 +12,4 @@ class SplitterTestIntegration(TestCase):
             'lng': 51.089666308
         }
         area_found = point_to_area(skytower_coords, areas)
-        self.assertIsNotNone(area_found)
+        self.assertEquals(area_found, 'Krzyki 2')
